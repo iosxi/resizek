@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- package (namespace) は Gradle の namespace / tools/build.sh が与える -->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 要求する権限は無い。共有された写真は、共有元が付けてくれる一時的な読み取り許可で読む。
+         縮めた写真は自分の領域に置き、自前の ContentProvider でクリップボードへ渡す。 -->
+
+    <application
+        android:allowBackup="false"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="false"
+        android:theme="@style/ResizekTheme">
+
+        <!-- アプリ一覧から開いたときは「いつもの設定」の画面 -->
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 共有メニューから呼ばれる画面。回転で作り直されると縮小をやり直すことになるので、
+             構成の変化は自分で受ける (画面は match_parent で組んであるので何もしなくてよい)。 -->
+        <activity
+            android:name=".ShareActivity"
+            android:exported="true"
+            android:configChanges="orientation|screenSize|screenLayout|smallestScreenSize|keyboardHidden|density|uiMode">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </activity>
+
+        <!-- 縮めた写真の受け渡し口。外には公開せず、クリップボード経由の一時的な許可だけで読ませる。 -->
+        <provider
+            android:name=".OutProvider"
+            android:authorities="io.resizek.out"
+            android:exported="false"
+            android:grantUriPermissions="true" />
+    </application>
+</manifest>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 108dp の枠のうち、中央 72dp に収まるように描く (適応アイコンの安全域)。
+     大きな写真の枠と、左下へ縮んだ小さな写真、その向きの矢印。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 元の大きな写真の枠 (evenOdd で中を抜く) -->
+    <path
+        android:fillColor="#FF000000"
+        android:fillType="evenOdd"
+        android:pathData="M28,32h52v44h-52z M31.5,35.5h45v37h-45z" />
+
+    <!-- 縮んだ写真 (左下) -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M28,56h26v20h-26z" />
+
+    <!-- 右上から左下への矢印 -->
+    <path
+        android:strokeColor="#FF000000"
+        android:strokeWidth="4"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:pathData="M72,40 L60,52 M60,43 L60,52 L69,52" />
+</vector>

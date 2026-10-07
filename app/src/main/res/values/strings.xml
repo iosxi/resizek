@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">resizek</string>
+
+    <!-- 共有から開く画面 -->
+    <string name="working">縮小しています…</string>
+    <string name="copy">コピー</string>
+    <string name="copied">コピーしました</string>
+    <string name="paste_hint">LINE などで貼り付けてください</string>
+    <string name="original">元</string>
+    <string name="ratio">（約 1/%d に）</string>
+    <string name="not_scaled">元から小さいので大きさはそのまま</string>
+    <string name="no_image">画像を受け取れませんでした</string>
+    <string name="failed">この画像は読み込めませんでした</string>
+
+    <!-- 設定の画面 -->
+    <string name="how_to">写真アプリで「共有」→「resizek」を選ぶと、写真の長いほうの辺が下の大きさになるまで縮めて表示します。\n\n「コピー」を押したら、LINE などに移って貼り付けてください。</string>
+    <string name="edge_title">長辺の大きさ</string>
+    <string name="default_mark">（はじめの設定）</string>
+    <string name="edge_example">例: 4032 × 3024 の写真 → %1$d × %2$d</string>
+    <string name="quality_title">画質</string>
+    <string name="quality_note">数字が小さいほど軽く、粗くなります。</string>
+    <string name="privacy_note">縮めた写真には、元の写真にあった位置情報や機種名などの撮影データは入りません。\nresizek は通信をしません。</string>
+</resources>
